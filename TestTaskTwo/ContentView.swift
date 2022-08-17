@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var movieFetcher = MovieFetcher()
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        if movieFetcher.isLoading {
+            LoadingView()
+        } else if movieFetcher.errorMessage != nil {
+            ErrorView(movieFetcher: movieFetcher)
+        } else {
+            MovieListView(movies: movieFetcher.movies)
+        }
     }
 }
 
