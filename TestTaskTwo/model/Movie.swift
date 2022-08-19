@@ -19,7 +19,7 @@ struct Initial: Codable {
     }
 }
 
-struct Movie: Codable {
+struct Movie: Codable, Identifiable {
     let posterPath: String
     let adult: Bool
     let overview, releaseDate: String
