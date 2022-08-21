@@ -15,6 +15,12 @@
 		84C469CA28AD502D009FD32F /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C469C928AD502D009FD32F /* APIError.swift */; };
 		84C469CC28AD5793009FD32F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C469CB28AD5793009FD32F /* APIService.swift */; };
 		84C469CE28AF87CC009FD32F /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C469CD28AF87CC009FD32F /* MovieDetailView.swift */; };
+		84C469D228AFDAAE009FD32F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C469D128AFDAAE009FD32F /* LoginView.swift */; };
+		84C469D428AFF5BD009FD32F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C469D328AFF5BD009FD32F /* UserService.swift */; };
+		84C469D828B2174E009FD32F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 84C469D728B2174E009FD32F /* Alamofire */; };
+		84C469DA28B222CA009FD32F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C469D928B222CA009FD32F /* User.swift */; };
+		84C469DD28B22748009FD32F /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 84C469DC28B22748009FD32F /* KeychainAccess */; };
+		84C469E028B23A16009FD32F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C469DF28B23A16009FD32F /* LoginViewModel.swift */; };
 		84FE38C928AC11A300994A1B /* TestTaskTwoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE38C828AC11A300994A1B /* TestTaskTwoApp.swift */; };
 		84FE38CB28AC11A300994A1B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE38CA28AC11A300994A1B /* ContentView.swift */; };
 		84FE38CD28AC11A800994A1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84FE38CC28AC11A800994A1B /* Assets.xcassets */; };
@@ -30,6 +36,11 @@
 		84C469C928AD502D009FD32F /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		84C469CB28AD5793009FD32F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		84C469CD28AF87CC009FD32F /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		84C469D128AFDAAE009FD32F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		84C469D328AFF5BD009FD32F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		84C469D528B21670009FD32F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		84C469D928B222CA009FD32F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		84C469DF28B23A16009FD32F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		84FE38C528AC11A300994A1B /* TestTaskTwo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTaskTwo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FE38C828AC11A300994A1B /* TestTaskTwoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTaskTwoApp.swift; sourceTree = "<group>"; };
 		84FE38CA28AC11A300994A1B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C469DD28B22748009FD32F /* KeychainAccess in Frameworks */,
+				84C469D828B2174E009FD32F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				84C469BF28ACD397009FD32F /* Movie.swift */,
+				84C469D928B222CA009FD32F /* User.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -63,8 +77,18 @@
 				84C469C528AD0B02009FD32F /* ErrorView.swift */,
 				84C469C728AD0B33009FD32F /* LoadingView.swift */,
 				84C469CD28AF87CC009FD32F /* MovieDetailView.swift */,
+				84C469D128AFDAAE009FD32F /* LoginView.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		84C469DE28B23974009FD32F /* services */ = {
+			isa = PBXGroup;
+			children = (
+				84C469CB28AD5793009FD32F /* APIService.swift */,
+				84C469D328AFF5BD009FD32F /* UserService.swift */,
+			);
+			path = services;
 			sourceTree = "<group>";
 		};
 		84FE38BC28AC11A300994A1B = {
@@ -86,10 +110,12 @@
 		84FE38C728AC11A300994A1B /* TestTaskTwo */ = {
 			isa = PBXGroup;
 			children = (
+				84C469D528B21670009FD32F /* Info.plist */,
 				84FE38C828AC11A300994A1B /* TestTaskTwoApp.swift */,
 				84FE38CA28AC11A300994A1B /* ContentView.swift */,
+				84C469DE28B23974009FD32F /* services */,
 				84C469BE28ACCFA3009FD32F /* view */,
-				84FE38D628AC2D3D00994A1B /* networking */,
+				84FE38D628AC2D3D00994A1B /* viewModel */,
 				84C469BD28ACCF8D009FD32F /* model */,
 				84FE38CC28AC11A800994A1B /* Assets.xcassets */,
 				84FE38CE28AC11A800994A1B /* Preview Content */,
@@ -105,14 +131,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		84FE38D628AC2D3D00994A1B /* networking */ = {
+		84FE38D628AC2D3D00994A1B /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
 				84C469C128ACD4E2009FD32F /* MovieFetcher.swift */,
 				84C469C928AD502D009FD32F /* APIError.swift */,
-				84C469CB28AD5793009FD32F /* APIService.swift */,
+				84C469DF28B23A16009FD32F /* LoginViewModel.swift */,
 			);
-			path = networking;
+			path = viewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +157,10 @@
 			dependencies = (
 			);
 			name = TestTaskTwo;
+			packageProductDependencies = (
+				84C469D728B2174E009FD32F /* Alamofire */,
+				84C469DC28B22748009FD32F /* KeychainAccess */,
+			);
 			productName = TestTaskTwo;
 			productReference = 84FE38C528AC11A300994A1B /* TestTaskTwo.app */;
 			productType = "com.apple.product-type.application";
@@ -159,6 +189,10 @@
 				Base,
 			);
 			mainGroup = 84FE38BC28AC11A300994A1B;
+			packageReferences = (
+				84C469D628B2174E009FD32F /* XCRemoteSwiftPackageReference "Alamofire" */,
+				84C469DB28B22748009FD32F /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			productRefGroup = 84FE38C628AC11A300994A1B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -185,14 +219,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C469DA28B222CA009FD32F /* User.swift in Sources */,
 				84C469CE28AF87CC009FD32F /* MovieDetailView.swift in Sources */,
 				84FE38CB28AC11A300994A1B /* ContentView.swift in Sources */,
 				84C469C628AD0B02009FD32F /* ErrorView.swift in Sources */,
 				84C469CC28AD5793009FD32F /* APIService.swift in Sources */,
 				84FE38C928AC11A300994A1B /* TestTaskTwoApp.swift in Sources */,
+				84C469E028B23A16009FD32F /* LoginViewModel.swift in Sources */,
 				84C469C428AD0AE4009FD32F /* MovieListView.swift in Sources */,
 				84C469C228ACD4E2009FD32F /* MovieFetcher.swift in Sources */,
 				84C469CA28AD502D009FD32F /* APIError.swift in Sources */,
+				84C469D428AFF5BD009FD32F /* UserService.swift in Sources */,
+				84C469D228AFDAAE009FD32F /* LoginView.swift in Sources */,
 				84C469C828AD0B33009FD32F /* LoadingView.swift in Sources */,
 				84C469C028ACD397009FD32F /* Movie.swift in Sources */,
 			);
@@ -326,6 +364,7 @@
 				DEVELOPMENT_TEAM = 27DGN8FK53;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestTaskTwo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -355,6 +394,7 @@
 				DEVELOPMENT_TEAM = 27DGN8FK53;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestTaskTwo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -395,6 +435,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		84C469D628B2174E009FD32F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		84C469DB28B22748009FD32F /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		84C469D728B2174E009FD32F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84C469D628B2174E009FD32F /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		84C469DC28B22748009FD32F /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84C469DB28B22748009FD32F /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 84FE38BD28AC11A300994A1B /* Project object */;
 }
