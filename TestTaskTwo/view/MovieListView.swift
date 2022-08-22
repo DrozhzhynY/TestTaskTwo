@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MovieListView: View {
     let movies: [Movie]
-    let firstPartOfUrlImg = "https://image.tmdb.org/t/p/w500/"
     
     var columns = [
         GridItem(.flexible()),
@@ -17,23 +16,33 @@ struct MovieListView: View {
     ]
     
     var body: some View {
+        Button("Logout"){
+            UserService.sharedInstance.unauthenticate()
+        }
+        .font(.title2)
+        .foregroundColor(.white)
+        .frame(width: 100, height: 40)
+        .background(Color.blue)
+        .cornerRadius(10)
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: columns) {
                     ForEach(movies) {
                         movie in
                         NavigationLink {
-                            MovieDetailView()
+                            MovieDetailView(movie: movie)
                         } label: {
                             ZStack(alignment: .bottom) {
-                                AsyncImage(url: URL(string: "\(firstPartOfUrlImg)\(movie.posterPath)")) { image in
+                                AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500/\(movie.posterPath ?? "")")) {
+                                    image in
                                     image.resizable()
                                          .scaledToFill()
                                          .clipped()
                                 } placeholder: {
                                     ProgressView()
                                 }
-                                Text("\(movie.title)").foregroundColor(.white)
+                                Text(movie.title)
+                                    .foregroundColor(.white)
                                     .padding([.bottom, .top], 20)
                                     .frame(minWidth: 0, maxWidth: .infinity)
                                     .background(.black.opacity(0.7))

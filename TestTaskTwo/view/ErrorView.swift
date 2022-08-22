@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ErrorView: View {
-    @ObservedObject var movieFetcher: MovieFetcher
+    @ObservedObject var movieFetcher: MovieListViewModel
     var body: some View {
-        Text("fgfhgh")
+        Text("error")
     }
 }
 
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorView(movieFetcher: MovieFetcher())
+        ErrorView(movieFetcher: MovieListViewModel())
     }
 }
