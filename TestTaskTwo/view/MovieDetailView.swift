@@ -8,13 +8,37 @@
 import SwiftUI
 
 struct MovieDetailView: View {
+    let movie: Movie
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct MovieDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        MovieDetailView()
+        ScrollView {
+            VStack {
+                ZStack(alignment: .bottom) {
+                    AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500/\(movie.posterPath ?? "")")) { image in
+                        image.resizable()
+                             .scaledToFill()
+                             .clipped()
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    Text(movie.title)
+                        .foregroundColor(.white)
+                        .padding([.bottom, .top], 20)
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .background(.black.opacity(0.7))
+                    Spacer()
+                }
+                
+                VStack{
+                    Text("Synopsis")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.title2)
+                    Text(movie.overview)
+                }
+                
+                Spacer()
+            }.padding()
+            .navigationBarTitle("Movie details")
+        }
     }
 }
