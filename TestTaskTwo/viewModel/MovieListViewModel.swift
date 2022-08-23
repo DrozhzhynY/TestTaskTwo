@@ -31,7 +31,7 @@ class MovieListViewModel: ObservableObject {
                 switch result {
                 case.failure(let error):
                     self.errorMessage = error.localizedDescription
-                    print(error)
+                    print(error.description)
                 case.success(let movies):
                     self.movies = movies
                 }
