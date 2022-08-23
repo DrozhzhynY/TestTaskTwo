@@ -24,6 +24,7 @@ struct MovieListView: View {
         .frame(width: 100, height: 40)
         .background(Color.blue)
         .cornerRadius(10)
+        
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: columns) {

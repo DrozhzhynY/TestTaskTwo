@@ -12,13 +12,7 @@ struct ContentView: View {
     @StateObject var movieFetcher = MovieListViewModel()
        var body: some View {
            if let _ = userService.sessionId {
-               if movieFetcher.isLoading {
-                   LoadingView()
-               } else if movieFetcher.errorMessage != nil {
-                   ErrorView(movieFetcher: movieFetcher)
-               } else {
-                   MovieListView(movies: movieFetcher.movies)
-               }
+               MovieListView(movies: movieFetcher.movies)
            } else {
                LoginView()
            }
